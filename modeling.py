@@ -155,7 +155,7 @@ class BertModel(object):
     """
     config = copy.deepcopy(config)
     if not is_training:
-      config.hidden_dropout_prob = 0.0
+      config.hidden_dropout_prob = 0.0 # 推理阶段不用dropout
       config.attention_probs_dropout_prob = 0.0
 
     input_shape = get_shape_list(input_ids, expected_rank=2)
